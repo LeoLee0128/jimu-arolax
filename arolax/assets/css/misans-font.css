@@ -1,0 +1,139 @@
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Normal.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Regular.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Medium.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Demibold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Semibold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Bold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Misans';
+    src: url('../fonts/Misans/MiSans-Heavy.woff2') format('woff2');
+    font-weight: 950;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --font_misans: 'Misans', sans-serif;
+    --font_primary: 'Misans', sans-serif;
+    --font_secondary: 'Misans', sans-serif;
+    --font_teko: 'Misans', sans-serif;
+    --font_dmsans: 'Misans', sans-serif;
+    --font_plusjakartasans: 'Misans', sans-serif;
+    --font_beatricetrial: 'Misans', sans-serif;
+    --font_khand: 'Misans', sans-serif;
+    --font_instrumentsans: 'Misans', sans-serif;
+    --font_spacegrotesk: 'Misans', sans-serif;
+    --font_canelatrial: 'Misans', sans-serif;
+}
+
+.font-heading-misans-bold h1,
+.font-heading-misans-bold h2,
+.font-heading-misans-bold h3,
+.font-heading-misans-bold h4,
+.font-heading-misans-bold h5,
+.font-heading-misans-bold h6 {
+    font-family: var(--font_misans);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.font-heading-misans-medium h1,
+.font-heading-misans-medium h2,
+.font-heading-misans-medium h3,
+.font-heading-misans-medium h4,
+.font-heading-misans-medium h5,
+.font-heading-misans-medium h6 {
+    font-family: var(--font_misans);
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.font-heading-misans-regular h1,
+.font-heading-misans-regular h2,
+.font-heading-misans-regular h3,
+.font-heading-misans-regular h4,
+.font-heading-misans-regular h5,
+.font-heading-misans-regular h6 {
+    font-family: var(--font_misans);
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.font-misans {
+    font-family: var(--font_misans);
+}
+
+body.font-heading-misans-bold {
+    font-family: var(--font_misans);
+}
+
+/* 全局覆盖所有字体 */
+body, p, h1, h2, h3, h4, h5, h6, a, span, button, input, textarea, select, option, label, div {
+    font-family: var(--font_misans) !important;
+} 

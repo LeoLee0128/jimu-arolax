@@ -463,8 +463,9 @@
     }
 
     .section-title {
-        font-size: 190px;
-        line-height: .76;
+        font-size: 160px;
+        // line-height: .76;
+        line-height: 1;
 
         @media #{$xxl} {
             font-size: 140px;
