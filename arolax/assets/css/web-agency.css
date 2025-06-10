@@ -8161,7 +8161,7 @@ FEATURES STYLES 3
   transform: rotateY(180deg);
 }
 .hero-area .section-title {
-  font-size: 190px;
+  font-size: 160px;
   line-height: 1;
 }
 @media only screen and (max-width: 1919px) {
@@ -8171,7 +8171,7 @@ FEATURES STYLES 3
 }
 @media only screen and (max-width: 1399px) {
   .hero-area .section-title {
-    font-size: 110px;
+    font-size: 90px;
   }
 }
 @media only screen and (max-width: 991px) {
