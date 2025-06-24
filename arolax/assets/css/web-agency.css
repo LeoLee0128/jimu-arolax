@@ -3440,7 +3440,7 @@ h6 {
 .font-heading-teko-bold h6 {
   font-family: var(--font_teko);
   font-weight: 700;
-  line-height: 0.94;
+  line-height: 1;
 }
 .font-heading-dmsans-medium h1,
 .font-heading-dmsans-medium h2,
@@ -7915,20 +7915,20 @@ FEATURES STYLES 3
   margin-top: -6px;
 }
 .cta-area .section-title {
-  font-size: 190px;
+  font-size: 130px;
   line-height: 0.82;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   color: var(--white);
 }
 @media only screen and (max-width: 1919px) {
   .cta-area .section-title {
-    font-size: 150px;
+    font-size: 110px;
   }
 }
 @media only screen and (max-width: 1399px) {
   .cta-area .section-title {
-    font-size: 130px;
+    font-size: 90px;
   }
 }
 @media only screen and (max-width: 1199px) {
@@ -8865,7 +8865,7 @@ FEATURES STYLES 3
 }
 .feature-box .title {
   font-size: 36px;
-  line-height: 0.88;
+  line-height: 1.2;
   font-weight: 600;
   text-transform: uppercase;
   color: var(--black);
@@ -8979,7 +8979,7 @@ FEATURES STYLES 3
 }
 .skill-nav .title {
   font-size: 36px;
-  line-height: 0.88;
+  line-height: 1.2;
   text-transform: uppercase;
   padding-top: 19px;
 }
@@ -9304,7 +9304,7 @@ FEATURES STYLES 3
 .service-box .title {
   font-size: 36px;
   text-transform: uppercase;
-  line-height: 0.88;
+  line-height: 1.2;
 }
 @media only screen and (max-width: 1199px) {
   .service-box .title {
@@ -9879,7 +9879,7 @@ FEATURES STYLES 3
 }
 .blog .title {
   font-size: 36px;
-  line-height: 0.88;
+  line-height: 1.2;
   color: var(--white);
   text-transform: uppercase;
   font-weight: 600;
