@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "jimu/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/jimu/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/jimu/$1"
+    }
+  ],
+  "functions": {},
+  "outputDirectory": "jimu"
+} 
