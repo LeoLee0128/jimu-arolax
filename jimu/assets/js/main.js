@@ -39,12 +39,44 @@
 
   // 02. Preloader
   $(document).ready(function () {
+    // 添加loaded类到container
     $('#container').addClass('loaded');
-    if ($('#container').hasClass('loaded')) {
-      $('#preloader').delay(1000).queue(function () {
-        $(this).remove();
-      });
+    
+    // 设置预加载动画隐藏的超时时间（5秒）
+    var preloaderTimeout = setTimeout(function() {
+      hidePreloader();
+    }, 5000);
+    
+    // 当页面完全加载后隐藏预加载动画
+    $(window).on('load', function() {
+      clearTimeout(preloaderTimeout);
+      hidePreloader();
+    });
+    
+    // 如果DOMContentLoaded已经完成，也尝试隐藏预加载动画
+    if (document.readyState === 'complete') {
+      clearTimeout(preloaderTimeout);
+      hidePreloader();
     }
+    
+    // 隐藏预加载动画的函数
+    function hidePreloader() {
+      if ($('#preloader').length) {
+        $('#preloader').delay(1000).queue(function () {
+          $(this).remove();
+        });
+      }
+    }
+    
+    // 添加错误处理，确保预加载动画最终会被隐藏
+    $(window).on('error', function() {
+      clearTimeout(preloaderTimeout);
+      setTimeout(function() {
+        if ($('#preloader').length) {
+          $('#preloader').remove();
+        }
+      }, 2000);
+    });
   });
 
   // Register GSAP Plugins

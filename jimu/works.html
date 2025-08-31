@@ -7,14 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="极沐科技成功案例展示 - 专业的Shopify建站开发服务">
 
-  <title>极沐科技 - 成功案例</title>
+  <title>成功案例</title>
 
   <!-- Fav Icon -->
   <link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
 
-
-
-
+  <!-- 关键CSS - 防止FOUC，确保移动端菜单正确显示 -->
+  <style>
+    /* 关键样式 - 在外部CSS加载前生效 */
+    .header__navicon { display: none !important; }
+    .header__nav { display: block !important; }
+    
+    /* 移动端关键样式 */
+    @media only screen and (max-width: 1199px) {
+      .header__nav { display: none !important; }
+      .header__navicon { display: block !important; }
+      .main-menu { display: none !important; }
+    }
+    
+    /* 桌面端关键样式 */
+    @media only screen and (min-width: 1200px) {
+      .header__nav { display: block !important; }
+      .header__navicon { display: none !important; }
+    }
+  </style>
 
   <!-- All CSS files -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -25,6 +41,65 @@
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
   <link rel="stylesheet" href="assets/css/master-works.css">
 
+  <!-- 移动端隐藏联系我们按钮和菜单修复 -->
+  <style>
+    /* 初始状态设置 - 防止FOUC */
+    .header__navicon {
+      display: none;
+    }
+    .header__nav {
+      display: block;
+    }
+    
+    @media only screen and (max-width: 767px) {
+      .header__button {
+        display: none !important;
+      }
+      .copyright-text {
+        text-align: center !important;
+      }
+      .copyright-text .text {
+        display: block !important;
+        margin-bottom: 5px !important;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      .copyright-text .text {
+        display: inline !important;
+        margin-bottom: 0 !important;
+      }
+      .copyright-text .text:first-child::after {
+        content: " | ";
+      }
+    }
+    
+    /* 移动端菜单修复 - 确保PC端导航菜单在移动端被隐藏 */
+    @media only screen and (max-width: 1199px) {
+      .header__nav {
+        display: none !important;
+      }
+      .header__navicon {
+        display: block !important;
+      }
+    }
+    
+    /* 确保在大屏幕上PC端菜单显示，移动端菜单图标隐藏 */
+    @media only screen and (min-width: 1200px) {
+      .header__nav {
+        display: block !important;
+      }
+      .header__navicon {
+        display: none !important;
+      }
+    }
+    
+    /* 额外的防闪烁措施 */
+    @media only screen and (max-width: 1199px) {
+      .main-menu {
+        display: none !important;
+      }
+    }
+  </style>
 
 </head>
 
@@ -37,19 +112,19 @@
       <div class="animation-preloader">
         <div class="spinner"></div>
         <div class="txt-loading">
-          <span data-text="A" class="characters">极</span>
-          <span data-text="R" class="characters">沐</span>
-          <span data-text="O" class="characters">科</span>
-          <span data-text="L" class="characters">技</span>
+          <span data-text="极" class="characters">极</span>
+          <span data-text="沐" class="characters">沐</span>
+          <span data-text="科" class="characters">科</span>
+          <span data-text="技" class="characters">技</span>
           <br/>
-          <span data-text="A" class="characters">J</span>
-          <span data-text="X" class="characters">i</span>
-          <span data-text="X" class="characters">m</span>
-          <span data-text="X" class="characters">u</span>
-          <span data-text="X" class="characters">T</span>
-          <span data-text="X" class="characters">e</span>
-          <span data-text="X" class="characters">c</span>
-          <span data-text="X" class="characters">h</span>
+          <span data-text="J" class="characters">J</span>
+          <span data-text="i" class="characters">i</span>
+          <span data-text="m" class="characters">m</span>
+          <span data-text="u" class="characters">u</span>
+          <span data-text="T" class="characters">T</span>
+          <span data-text="e" class="characters">e</span>
+          <span data-text="c" class="characters">c</span>
+          <span data-text="h" class="characters">h</span>
         </div>
       </div>
       <div class="loader-section section-left"></div>
@@ -130,10 +205,9 @@
         <div class="">
           <div class="offcanvas-3__meta mb-145 d-none d-md-block">
             <ul>
-              <li><a href="tel:+86-755-12345678" class="unnerline"><u>+86-755-12345678</u></a></li>
-              <li><a href="mailto:lzk99018@gmail.com">lzk99018@gmail.com</a></li>
-              <li><a href="">深圳市南山区科技园<br>
-                  高新技术产业园区</a></li>
+              <li><a href="tel:+8619121685062" class="unnerline"><u>+86 19121685062</u></a></li>
+              <li><a href="mailto:info@jimu-tech.com">info@jimu-tech.com</a></li>
+              <li><a href="">深圳市南山区留仙大道<br/>众冠时代广场A座1002</a></li>
             </ul>
           </div>
           <div class="offcanvas-3__social d-none d-md-block">
@@ -151,19 +225,9 @@
         <nav class="nav-menu offcanvas-3__menu">
           <ul>
             <li><a href="index.html">首页</a></li>
-            <li><a href="about.html">关于我们</a></li>
             <li><a href="services.html">核心服务</a></li>
-            <li><a href="service-details.html">服务详情</a></li>
             <li><a href="works.html">成功案例</a></li>
-            <li><a href="work-details.html">案例详情</a></li>
-            <li><a href="team.html">团队介绍</a></li>
-            <li><a href="team-details.html">团队成员</a></li>
-            <li><a href="career.html">招聘信息</a></li>
-            <li><a href="career-details.html">职位详情</a></li>
-            <li><a href="faq.html">常见问题</a></li>
-            <li><a href="404.html">404页面</a></li>
-            <li><a href="blog.html">行业洞察</a></li>
-            <li><a href="blog-details.html">博客详情</a></li>
+            <li><a href="about.html">关于我们</a></li>
             <li><a href="contact.html">联系我们</a></li>
           </ul>
         </nav>
@@ -326,7 +390,7 @@
                             <h3 class="title">Igarden</h3>
                             <div class="meta">
                               <span class="tag">Shopify建站+功能开发 - 2024</span>
-                              <p class="desc">为Igarden智能园艺品牌开发定制化功能模块，实现智能设备与商城无缝对接，提升用户体验。</p>
+                              <p class="desc">为Igarden泳池机器人品牌开发定制化功能模块，实现智能设备与商城无缝对接，提升用户体验。</p>
                             </div>
                           </div>
                         </div>
@@ -390,7 +454,7 @@
                             <h3 class="title">kayuso</h3>
                             <div class="meta">
                               <span class="tag">Shopify从0-1建站 - 2023</span>
-                              <p class="desc">为kayuso服饰品牌量身定制电商网站，提供多语言、多币种支持，提升品牌国际化形象，优化移动端购物体验。</p>
+                              <p class="desc">为kayuso厨房用品品牌量身定制电商网站，提供多语言、多币种支持，提升品牌国际化形象，优化移动端购物体验。</p>
                             </div>
                           </div>
                         </div>
@@ -444,7 +508,7 @@
                         </div>
                       </a>
                     </div>
-                    <div class="has_fade_anim">
+                    <!-- <div class="has_fade_anim">
                       <a href="https://inflync.com/" target="_blank">
                         <div class="work-box">
                           <div class="thumb">
@@ -459,8 +523,8 @@
                           </div>
                         </div>
                       </a>
-                    </div>
-                    <div class="has_fade_anim">
+                    </div> -->
+                    <!-- <div class="has_fade_anim">
                       <a href="https://legalcha.in" target="_blank">
                         <div class="work-box">
                           <div class="thumb">
@@ -475,8 +539,7 @@
                           </div>
                         </div>
                       </a>
-                    </div>
-                    
+                    </div> -->
                   </div>
                 </div>
               </div>
@@ -509,9 +572,9 @@
                 <div class="footer-widget-wrapper">
                   <h2 class="title">电子邮箱：</h2>
                   <ul class="footer-nav-list">
-                    <li>
-                      lzk99018@gmail.com
-                    </li>
+                      <li>
+                       info@jimu-tech.com
+                     </li>
                   </ul>
                 </div>
                 <div class="footer-widget-wrapper">
@@ -535,16 +598,17 @@
           <div class="copyright-area">
             <div class="container">
               <div class="copyright-area-inner">
+                <ul class="footer-nav-list">
+                  <li><a href="index.html">首页</a></li>
+                  <li><a href="services.html">核心服务</a></li>
+                  <li><a href="works.html">成功案例</a></li>
+                  <li><a href="about.html">关于我们</a></li>
+                  <li><a href="contact.html">联系我们</a></li>
+                </ul>
                 <div class="copyright-text">
                   <p class="text">© 2021-2025 版权所有</p>
+                  <p class="text">上海晴坤科技有限公司-沪ICP备2025139992号</p>
                 </div>
-                                  <ul class="footer-nav-list">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="services.html">核心服务</a></li>
-                    <li><a href="works.html">成功案例</a></li>
-                    <li><a href="about.html">关于我们</a></li>
-                    <li><a href="contact.html">联系我们</a></li>
-                  </ul>
               </div>
             </div>
           </div>
@@ -574,6 +638,10 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/error-handling.js"></script>
   <script src="assets/js/offcanvas.js"></script>
+  
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="assets/js/email-subscription-v3.js"></script>
 
   <script>
 

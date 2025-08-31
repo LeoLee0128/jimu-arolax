@@ -5,16 +5,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Arolax HTML5 Template">
+  <meta name="description" content="极沐科技联系我们 - 专业Shopify电商网站开发服务商">
 
-  <title>Arolax Contact</title>
+  <title>联系我们</title>
 
   <!-- Fav Icon -->
   <link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
 
-
-
-
+  <!-- 关键CSS - 防止FOUC，确保移动端菜单正确显示 -->
+  <style>
+    /* 关键样式 - 在外部CSS加载前生效 */
+    .header__navicon { display: none !important; }
+    .header__nav { display: block !important; }
+    
+    /* 移动端关键样式 */
+    @media only screen and (max-width: 1199px) {
+      .header__nav { display: none !important; }
+      .header__navicon { display: block !important; }
+      .main-menu { display: none !important; }
+    }
+    
+    /* 桌面端关键样式 */
+    @media only screen and (min-width: 1200px) {
+      .header__nav { display: block !important; }
+      .header__navicon { display: none !important; }
+    }
+  </style>
 
   <!-- All CSS files -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -25,6 +41,65 @@
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
   <link rel="stylesheet" href="assets/css/master-contact.css">
 
+  <!-- 移动端隐藏联系我们按钮和菜单修复 -->
+  <style>
+    /* 初始状态设置 - 防止FOUC */
+    .header__navicon {
+      display: none;
+    }
+    .header__nav {
+      display: block;
+    }
+    
+    @media only screen and (max-width: 767px) {
+      .header__button {
+        display: none !important;
+      }
+      .copyright-text {
+        text-align: center !important;
+      }
+      .copyright-text .text {
+        display: block !important;
+        margin-bottom: 5px !important;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      .copyright-text .text {
+        display: inline !important;
+        margin-bottom: 0 !important;
+      }
+      .copyright-text .text:first-child::after {
+        content: " | ";
+      }
+    }
+    
+    /* 移动端菜单修复 - 确保PC端导航菜单在移动端被隐藏 */
+    @media only screen and (max-width: 1199px) {
+      .header__nav {
+        display: none !important;
+      }
+      .header__navicon {
+        display: block !important;
+      }
+    }
+    
+    /* 确保在大屏幕上PC端菜单显示，移动端菜单图标隐藏 */
+    @media only screen and (min-width: 1200px) {
+      .header__nav {
+        display: block !important;
+      }
+      .header__navicon {
+        display: none !important;
+      }
+    }
+    
+    /* 额外的防闪烁措施 */
+    @media only screen and (max-width: 1199px) {
+      .main-menu {
+        display: none !important;
+      }
+    }
+  </style>
 
 </head>
 
@@ -37,19 +112,19 @@
       <div class="animation-preloader">
         <div class="spinner"></div>
         <div class="txt-loading">
-          <span data-text="A" class="characters">极</span>
-          <span data-text="R" class="characters">沐</span>
-          <span data-text="O" class="characters">科</span>
-          <span data-text="L" class="characters">技</span>
+          <span data-text="极" class="characters">极</span>
+          <span data-text="沐" class="characters">沐</span>
+          <span data-text="科" class="characters">科</span>
+          <span data-text="技" class="characters">技</span>
           <br/>
-          <span data-text="A" class="characters">J</span>
-          <span data-text="X" class="characters">i</span>
-          <span data-text="X" class="characters">m</span>
-          <span data-text="X" class="characters">u</span>
-          <span data-text="X" class="characters">T</span>
-          <span data-text="X" class="characters">e</span>
-          <span data-text="X" class="characters">c</span>
-          <span data-text="X" class="characters">h</span>
+          <span data-text="J" class="characters">J</span>
+          <span data-text="i" class="characters">i</span>
+          <span data-text="m" class="characters">m</span>
+          <span data-text="u" class="characters">u</span>
+          <span data-text="T" class="characters">T</span>
+          <span data-text="e" class="characters">e</span>
+          <span data-text="c" class="characters">c</span>
+          <span data-text="h" class="characters">h</span>
         </div>
       </div>
       <div class="loader-section section-left"></div>
@@ -130,14 +205,13 @@
         <div class="">
           <div class="offcanvas-3__meta mb-145 d-none d-md-block">
             <ul>
-              <li><a href="tel:+2-352698102" class="unnerline"><u>+2-352 698 102</u></a></li>
-              <li><a href="mailto:contact@me.com">contact@me.com</a></li>
-              <li><a href="">27 Division St, <br>
-                  New York, NY 10002, USA</a></li>
+              <li><a href="tel:+8619121685062" class="unnerline"><u>+86 19121685062</u></a></li>
+              <li><a href="mailto:info@jimu-tech.com">info@jimu-tech.com</a></li>
+              <li><a href="">深圳市南山区留仙大道<br/>众冠时代广场A座1002</a></li>
             </ul>
           </div>
           <div class="offcanvas-3__social d-none d-md-block">
-            <p class="title">Follow Me</p>
+            <p class="title">关注我们</p>
             <div class="offcanvas-3__social-links">
               <a href=""><i class="fa-brands fa-facebook-f"></i></a>
               <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -150,21 +224,11 @@
       <div class="offcanvas-3__menu-wrapper">
         <nav class="nav-menu offcanvas-3__menu">
           <ul>
-            <li><a href="#">home</a></li>
-            <li><a href="about.html">about</a></li>
-            <li><a href="services.html">services</a></li>
-            <li><a href="service-details.html">service details</a></li>
-            <li><a href="works.html">projects</a></li>
-            <li><a href="work-details.html">project details</a></li>
-            <li><a href="team.html">team</a></li>
-            <li><a href="team-details.html">team details</a></li>
-            <li><a href="career.html">career</a></li>
-            <li><a href="career-details.html">career details</a></li>
-            <li><a href="faq.html">faq</a></li>
-            <li><a href="404.html">404 page</a></li>
-            <li><a href="blog.html">blog</a></li>
-            <li><a href="blog-details.html">blog details</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="services.html">核心服务</a></li>
+            <li><a href="works.html">成功案例</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系我们</a></li>
           </ul>
         </nav>
       </div>
@@ -181,7 +245,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <form action="#" class="form-search">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="搜索">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
         </div>
@@ -277,7 +341,7 @@
                           <img src="assets/imgs/logo/JM-logo.png" alt="shape" width="80px">
                         </div>
                         <span class="title">电子邮箱: </span>
-                        <p class="link"><a href="#">lzk99018@gmail.com</a></p>
+                        <p class="link"><a href="#">info@jimu-tech.com</a></p>
                       </div>
                     </div>
                     <div class="col-second">
@@ -327,7 +391,7 @@
                     </div>
                     <ul class="contact-list">
                       <li><a href="tel:+881750660600">+86 19121685062</a></li>
-                      <li><a href="#">lzk99018@gmail.com</a></li>
+                      <li><a href="#">info@jimu-tech.com</a></li>
                       <li>深圳市南山区留仙大道<br/>众冠时代广场A座1002</li>
                     </ul>
                   </div>
@@ -340,12 +404,6 @@
                         <div class="contact-formfield">
                           <input type="text" name="Email" id="Email" placeholder="Email*">
                         </div>
-                        <!-- <div class="contact-formfield">
-                          <input type="text" name="Phone" id="Phone" placeholder="Phone">
-                        </div> -->
-                        <!-- <div class="contact-formfield">
-                          <input type="text" name="Subject" id="Subject" placeholder="Subject*">
-                        </div> -->
                         <div class="contact-formfield messages">
                           <input type="text" name="备注" id="Messages" placeholder="备注">
                         </div>
@@ -392,8 +450,8 @@
                   <h2 class="title">电子邮箱：</h2>
                   <ul class="footer-nav-list">
                     <li>
-                      lzk99018@gmail.com
-                    </li>
+                       info@jimu-tech.com
+                     </li>
                   </ul>
                 </div>
                 <div class="footer-widget-wrapper">
@@ -405,7 +463,7 @@
                 <div class="footer-widget-wrapper newsletter">
                   <form action="#" class="subscribe-form">
                     <div class="input-field">
-                      <input type="email" placeholder="Email">
+                      <input type="email" placeholder="Email" required>
                       <button type="submit" class="subscribe-btn"><img src="assets/imgs/icon/arrow-light.webp"
                           alt="icon"></button>
                     </div>
@@ -417,15 +475,17 @@
           <div class="copyright-area">
             <div class="container">
               <div class="copyright-area-inner">
+                <ul class="footer-nav-list">
+                  <li><a href="index.html">首页</a></li>
+                  <li><a href="services.html">核心服务</a></li>
+                  <li><a href="works.html">成功案例</a></li>
+                  <li><a href="about.html">关于我们</a></li>
+                  <li><a href="contact.html">联系我们</a></li>
+                </ul>
                 <div class="copyright-text">
-                  <p class="text">© 2022 - 2025 | Alrights reserved 
+                  <p class="text">© 2021-2025 版权所有</p>
+                  <p class="text">上海晴坤科技有限公司-沪ICP备2025139992号</p>
                 </div>
-                <!-- <ul class="footer-nav-list">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Career</a></li>
-                  <li><a href="#">Sitemap</a></li>
-                </ul> -->
               </div>
             </div>
           </div>
@@ -455,6 +515,11 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/error-handling.js"></script>
   <script src="assets/js/offcanvas.js"></script>
+  
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="assets/js/email-subscription-v3.js"></script>
+  <script src="assets/js/contact-form-v1.js"></script>
 
   <script>
 

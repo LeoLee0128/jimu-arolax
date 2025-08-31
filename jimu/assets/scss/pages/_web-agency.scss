@@ -146,7 +146,7 @@
     }
 
     .main-menu li a {
-        font-size: 22px;
+        font-size: 16px;
         font-weight: 400;
         font-family: var(--font_teko);
         text-transform: uppercase;
@@ -481,7 +481,7 @@
 
         .marked {
             font-size: 42px;
-            line-height: .83;
+            line-height: 1;
             font-weight: 600;
             display: inline-block;
             position: relative;
@@ -526,7 +526,7 @@
 
         .rotated {
             font-size: 30px;
-            line-height: 0.66;
+            line-height: 1;
             text-transform: lowercase;
             font-weight: 400;
             width: 120px;
@@ -534,11 +534,12 @@
             background-color: var(--theme);
             display: inline-flex;
             align-items: center;
-            padding-top: 19px;
+            padding-top: 0;
             border-radius: 47px;
             writing-mode: vertical-lr;
-            // transform: rotate(180deg);
+            transform: rotate(180deg);
             color: var(--primary);
+            justify-content: center;
 
             @media #{$xxl} {
                 font-size: 22px;
@@ -571,6 +572,15 @@
             @media #{$xl} {
                 height: 70px;
                 margin-inline-start: -20px;
+            }
+
+            // Prevent overflow on smaller screens
+            @media #{$md} {
+                margin-inline-start: 0;
+            }
+
+            @media #{$sm} {
+                margin-inline-start: 0;
             }
         }
     }

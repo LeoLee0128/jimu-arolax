@@ -1,0 +1,69 @@
+/* 预加载动画修复样式 */
+
+/* 确保预加载动画在页面加载完成后能够正确隐藏 */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #000;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* 当页面加载完成时隐藏预加载动画 */
+body.loaded #preloader,
+html.loaded #preloader {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 强制隐藏预加载动画的备用方案 */
+#preloader.hidden,
+#preloader[style*="display: none"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 确保动画容器在加载完成后正确隐藏 */
+.container-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+/* 添加一个强制隐藏的类 */
+.force-hide-preloader {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 确保在移动设备上也能正常工作 */
+@media only screen and (max-width: 767px) {
+  #preloader {
+    z-index: 99999;
+  }
+}
+
+/* 添加一个备用隐藏机制 */
+@keyframes fadeOutPreloader {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#preloader.fade-out {
+  animation: fadeOutPreloader 0.5s ease-out forwards;
+}

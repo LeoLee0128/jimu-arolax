@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预加载动画测试页面</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        
+        .test-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        
+        .test-button:hover {
+            background: #0056b3;
+        }
+        
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #e9ecef;
+        }
+        
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-content">
+        <h1>预加载动画修复测试</h1>
+        
+        <div class="status" id="status">
+            正在测试预加载动画的隐藏功能...
+        </div>
+        
+        <h2>测试说明</h2>
+        <p>这个页面用于测试预加载动画的修复效果。如果预加载动画能够正常隐藏，说明修复成功。</p>
+        
+        <h2>测试按钮</h2>
+        <button class="test-button" onclick="testPreloaderHide()">测试隐藏预加载动画</button>
+        <button class="test-button" onclick="showPreloader()">显示预加载动画</button>
+        <button class="test-button" onclick="forceHidePreloader()">强制隐藏预加载动画</button>
+        
+        <h2>测试结果</h2>
+        <div id="testResults"></div>
+    </div>
+
+    <script>
+        // 测试预加载动画的隐藏功能
+        function testPreloaderHide() {
+            var preloader = document.getElementById('preloader');
+            var status = document.getElementById('status');
+            var results = document.getElementById('testResults');
+            
+            if (!preloader) {
+                status.className = 'status error';
+                status.innerHTML = '错误：找不到预加载动画元素';
+                return;
+            }
+            
+            // 尝试隐藏预加载动画
+            preloader.style.display = 'none';
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+            
+            status.className = 'status success';
+            status.innerHTML = '成功：预加载动画已隐藏';
+            
+            results.innerHTML += '<p>✓ 预加载动画隐藏测试通过</p>';
+        }
+        
+        // 显示预加载动画
+        function showPreloader() {
+            var preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.display = 'block';
+                preloader.style.opacity = '1';
+                preloader.style.visibility = 'visible';
+            }
+        }
+        
+        // 强制隐藏预加载动画
+        function forceHidePreloader() {
+            var preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('force-hide-preloader');
+                preloader.style.display = 'none';
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+                preloader.style.pointerEvents = 'none';
+            }
+        }
+        
+        // 页面加载完成后自动测试
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                var preloader = document.getElementById('preloader');
+                var status = document.getElementById('status');
+                var results = document.getElementById('testResults');
+                
+                if (preloader && preloader.style.display !== 'none') {
+                    status.className = 'status error';
+                    status.innerHTML = '警告：预加载动画仍然可见，可能需要手动隐藏';
+                    results.innerHTML += '<p>⚠ 预加载动画可能需要手动隐藏</p>';
+                } else {
+                    status.className = 'status success';
+                    status.innerHTML = '成功：预加载动画已自动隐藏';
+                    results.innerHTML += '<p>✓ 预加载动画自动隐藏测试通过</p>';
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

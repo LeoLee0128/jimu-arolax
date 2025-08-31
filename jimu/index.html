@@ -5,12 +5,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Arolax HTML5 Template">
+  <meta name="description" content="极沐科技首页 - 专业Shopify电商网站开发服务商">
 
   <title>极沐科技</title>
 
   <!-- Fav Icon -->
   <link rel="icon" type="image/x-icon" href="assets/imgs/logo/favicon.png">
+
+  <!-- 关键CSS - 防止FOUC，确保移动端菜单正确显示 -->
+  <style>
+    /* 关键样式 - 在外部CSS加载前生效 */
+    .header__navicon { display: none !important; }
+    .header__nav { display: block !important; }
+    
+    /* 移动端关键样式 */
+    @media only screen and (max-width: 1199px) {
+      .header__nav { display: none !important; }
+      .header__navicon { display: block !important; }
+      .main-menu { display: none !important; }
+    }
+    
+    /* 桌面端关键样式 */
+    @media only screen and (min-width: 1200px) {
+      .header__nav { display: block !important; }
+      .header__navicon { display: none !important; }
+    }
+  </style>
 
   <!-- All CSS files -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -21,6 +41,7 @@
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
   <link rel="stylesheet" href="assets/css/master-web-agency.css">
   <link rel="stylesheet" href="assets/css/web-agency.css">
+  <link rel="stylesheet" href="assets/css/preloader-fix.css">
 
 </head>
 
@@ -29,22 +50,46 @@
   <!-- Preloader 预加载动画 -->
   <div id="preloader">
     <div id="container" class="container-preloader">
+    <script>
+      // 内联脚本确保预加载动画能够被隐藏
+      (function() {
+        // 3秒后强制隐藏预加载动画
+        setTimeout(function() {
+          var preloader = document.getElementById('preloader');
+          if (preloader) {
+            preloader.style.display = 'none';
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+          }
+        }, 3000);
+        
+        // 页面加载完成后隐藏预加载动画
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            var preloader = document.getElementById('preloader');
+            if (preloader) {
+              preloader.style.display = 'none';
+            }
+          }, 1000);
+        });
+      })();
+    </script>
       <div class="animation-preloader">
         <div class="spinner"></div>
         <div class="txt-loading">
-          <span data-text="A" class="characters">极</span>
-          <span data-text="R" class="characters">沐</span>
-          <span data-text="O" class="characters">科</span>
-          <span data-text="L" class="characters">技</span>
+          <span data-text="极" class="characters">极</span>
+          <span data-text="沐" class="characters">沐</span>
+          <span data-text="科" class="characters">科</span>
+          <span data-text="技" class="characters">技</span>
           <br/>
-          <span data-text="A" class="characters">J</span>
-          <span data-text="X" class="characters">i</span>
-          <span data-text="X" class="characters">m</span>
-          <span data-text="X" class="characters">u</span>
-          <span data-text="X" class="characters">T</span>
-          <span data-text="X" class="characters">e</span>
-          <span data-text="X" class="characters">c</span>
-          <span data-text="X" class="characters">h</span>
+          <span data-text="J" class="characters">J</span>
+          <span data-text="i" class="characters">i</span>
+          <span data-text="m" class="characters">m</span>
+          <span data-text="u" class="characters">u</span>
+          <span data-text="T" class="characters">T</span>
+          <span data-text="e" class="characters">e</span>
+          <span data-text="c" class="characters">c</span>
+          <span data-text="h" class="characters">h</span>
         </div>
       </div>
       <div class="loader-section section-left"></div>
@@ -125,14 +170,13 @@
         <div class="">
           <div class="offcanvas-3__meta mb-145 d-none d-md-block">
             <ul>
-              <li><a href="tel:+2-352698102" class="unnerline"><u>+2-352 698 102</u></a></li>
-              <li><a href="mailto:contact@me.com">contact@me.com</a></li>
-              <li><a href="">27 Division St, <br>
-                  New York, NY 10002, USA</a></li>
+              <li><a href="tel:+8619121685062" class="unnerline"><u>+86 19121685062</u></a></li>
+              <li><a href="mailto:info@jimu-tech.com">info@jimu-tech.com</a></li>
+              <li><a href="">深圳市南山区留仙大道<br/>众冠时代广场A座1002</a></li>
             </ul>
           </div>
           <div class="offcanvas-3__social d-none d-md-block">
-            <p class="title">Follow Me</p>
+            <p class="title">关注我们</p>
             <div class="offcanvas-3__social-links">
               <a href=""><i class="fa-brands fa-facebook-f"></i></a>
               <a href=""><i class="fa-brands fa-twitter"></i></a>
@@ -145,21 +189,11 @@
       <div class="offcanvas-3__menu-wrapper">
         <nav class="nav-menu offcanvas-3__menu">
           <ul>
-            <li><a href="#">home</a></li>
-            <li><a href="about-bold.html">about</a></li>
-            <li><a href="services-bold.html">services</a></li>
-            <li><a href="service-details-bold.html">service details</a></li>
-            <li><a href="works-bold.html">projects</a></li>
-            <li><a href="work-details-bold.html">project details</a></li>
-            <li><a href="team-bold.html">team</a></li>
-            <li><a href="team-details-bold.html">team details</a></li>
-            <li><a href="career-bold.html">career</a></li>
-            <li><a href="career-details-bold.html">career details</a></li>
-            <li><a href="faq-bold.html">faq</a></li>
-            <li><a href="404-bold.html">404 page</a></li>
-            <li><a href="blog-bold.html">blog</a></li>
-            <li><a href="blog-details-bold.html">blog details</a></li>
-            <li><a href="contact-bold.html">Contact</a></li>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="services.html">核心服务</a></li>
+            <li><a href="works.html">成功案例</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="contact.html">联系我们</a></li>
           </ul>
         </nav>
       </div>
@@ -176,7 +210,7 @@
       <div class="modal-content">
         <div class="modal-body">
           <form action="#" class="form-search">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="搜索">
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
           </form>
         </div>
@@ -299,7 +333,7 @@
         </div> -->
         <!-- 联系我们按钮 -->
         <div class="header__button">
-          <a href="contact-bold.html" class="wc-btn wc-btn-primary btn-text-flip"> 
+          <a href="contact.html" class="wc-btn wc-btn-primary btn-text-flip"> 
             <span data-text="联系我们">联系我们</span>
           </a>
         </div>
@@ -368,7 +402,7 @@
                         </p>
                       </div>
                       <div class="btn-wrapper has_fade_anim">
-                        <a href="contact-bold.html" class="wc-btn wc-btn-underline btn-text-flip"> <span
+                        <a href="contact.html" class="wc-btn wc-btn-underline btn-text-flip"> <span
                             data-text="联系我们获取解决方案">联系我们获取解决方案</span> <img class="show-light"
                             src="assets/imgs/icon/arrow-right-half.webp" alt="icon image"><img class="show-dark"
                             src="assets/imgs/icon/arrow-right-half-light.webp" alt="icon image"></a>
@@ -420,7 +454,7 @@
           <!-- hero area end 头图区域结束 -->
 
           <!-- clients area start 客户区域开始 -->
-          <div class="container-hd">
+          <div class="container-hd" style="margin-top: 1px;">
             <div class="clients-area">
               <div class="container">
                 <div class="clients-area-inner">
@@ -529,7 +563,7 @@
                       <div class="btn-wrapper has_fade_anim" data-fade-from="top" data-fade-offset="100"
                         data-ease="bounce">
                         <div class="btn-wrapper btn-move">
-                          <a href="about-bold.html" class="wc-btn wc-btn-circle btn-hover-bgchange btn-item">
+                          <a href="about.html" class="wc-btn wc-btn-circle btn-hover-bgchange btn-item">
                             了解
                             <br>
                             我们的服务
@@ -746,13 +780,7 @@
                 </div>
                 <div class="expertise-wrapper-box">
                   <div class="expertise-wrapper">
-                    <div class="expertise-box has_fade_anim" data-fade-from="left">
-                      <div class="icon">
-                        <img class="show-light" src="assets/imgs/icon/icon-shopify-logo.webp" alt="icon">
-                        <img class="show-dark" src="assets/imgs/icon/icon-s-35-light.webp" alt="icon">
-                      </div>
-                      <p class="name">Shopify</p>
-                    </div>
+                    
                     <div class="expertise-box has_fade_anim" data-fade-from="right">
                       <div class="icon">
                         <img class="show-light" src="assets/imgs/icon/icon-s-31.webp" alt="icon">
@@ -767,6 +795,14 @@
                       </div>
                       <p class="name">React.js</p>
                     </div>
+                    
+                    <div class="expertise-box has_fade_anim" data-fade-from="left">
+                      <div class="icon">
+                        <img class="show-light" src="assets/imgs/icon/icon-shopify-logo.webp" alt="icon">
+                        <img class="show-dark" src="assets/imgs/icon/icon-s-35-light.webp" alt="icon">
+                      </div>
+                      <p class="name">Shopify</p>
+                    </div>
                     <div class="expertise-box has_fade_anim" data-fade-from="right">
                       <div class="icon">
                         <img class="show-light" src="assets/imgs/icon/icon-s-33.webp" alt="icon">
@@ -779,7 +815,7 @@
                         <img class="show-light" src="assets/imgs/icon/icon-s-34.webp" alt="icon">
                         <img class="show-dark" src="assets/imgs/icon/icon-s-34-light.webp" alt="icon">
                       </div>
-                      <p class="name">Flutter</p>
+                      <p class="name">Wix</p>
                     </div>
                     
                   </div>
@@ -809,7 +845,7 @@
                                 </div>
                                 <h3 class="title">Naisigoo</h3>
                                 <span class="meta">Shopify从0-1建站 - 2022</span>
-                                <p class="desc">为Naisigoo品牌打造全新电商平台，涵盖品牌策划、UI设计、前后端开发及上线运维，助力客户实现线上业务快速增长。</p>
+                                <p class="desc">为Naisigoo脱毛仪品牌打造全新电商平台，涵盖品牌策划、UI设计、前后端开发及上线运维，助力客户实现线上业务快速增长。</p>
                               </div>
                             </div>
                           </a>
@@ -826,7 +862,7 @@
                                 </div>
                                 <h3 class="title">kayuso</h3>
                                 <span class="meta">Shopify从0-1建站 - 2023</span>
-                                <p class="desc">为kayuso服饰品牌量身定制电商网站，提供多语言、多币种支持，提升品牌国际化形象，优化移动端购物体验。</p>
+                                <p class="desc">为kayuso厨房用品品牌量身定制电商网站，提供多语言、多币种支持，提升品牌国际化形象，优化移动端购物体验。</p>
                               </div>
                             </div>
                           </a>
@@ -894,7 +930,7 @@
                                 </div>
                                 <h3 class="title">Igarden</h3>
                                 <span class="meta">Shopify建站+功能开发 - 2024</span>
-                                <p class="desc">为Igarden智能园艺品牌开发定制化功能模块，实现智能设备与商城无缝对接，提升用户体验。</p>
+                                <p class="desc">为Igarden泳池机器人品牌开发定制化功能模块，实现智能设备与商城无缝对接，提升用户体验。</p>
                               </div>
                             </div>
                           </a>
@@ -954,7 +990,7 @@
                             </div>
                           </a>
                         </div>
-                                                  <div class="swiper-slide">
+                        <div class="swiper-slide">
                            <a href="https://inflync.com/" target="_blank">
                             <div class="work-box">
                               <div class="thumb">
@@ -971,7 +1007,7 @@
                             </div>
                           </a>
                         </div>
-                                                  <div class="swiper-slide">
+                        <div class="swiper-slide">
                            <a href="https://legalcha.in" target="_blank">
                             <div class="work-box">
                               <div class="thumb">
@@ -989,8 +1025,8 @@
                           </a>
                         </div>
                         
-                                                  <div class="swiper-slide">
-                           <a href="https://www.wedgwood.com/" target="_blank">
+                        <div class="swiper-slide">
+                          <a href="https://www.wedgwood.com/" target="_blank">
                             <div class="work-box">
                               <div class="thumb">
                                 <img src="assets/imgs/project/work-img-12.png" alt="image">
@@ -1052,7 +1088,7 @@
                 <div class="services-wrapper-box">
                   <div class="services-wrapper">
                     <div class="has_fade_anim">
-                      <a href="service-details-bold.html">
+                      <!-- <a href="service-details-bold.html"> -->
                         <div class="service-box">
                           <span class="number">01.</span>
                           <div class="content">
@@ -1073,10 +1109,10 @@
                             <img class="show-dark" src="assets/imgs/icon/icon-s-36-light.webp" alt="icon">
                           </div>
                         </div>
-                      </a>
+                      <!-- </a> -->
                     </div>
                     <div class="has_fade_anim">
-                      <a href="service-details-bold.html">
+                      <!-- <a href="service-details-bold.html"> -->
                         <div class="service-box">
                           <span class="number">02.</span>
                           <div class="content">
@@ -1097,10 +1133,10 @@
                             <img class="show-dark" src="assets/imgs/icon/icon-s-37-light.webp" alt="icon">
                           </div>
                         </div>
-                      </a>
+                      <!-- </a> -->
                     </div>
                     <div class="has_fade_anim">
-                      <a href="service-details-bold.html">
+                      <!-- <a href="service-details-bold.html"> -->
                         <div class="service-box">
                           <span class="number">03.</span>
                           <div class="content">
@@ -1122,10 +1158,10 @@
                             <img class="show-dark" src="assets/imgs/icon/icon-s-38-light.webp" alt="icon">
                           </div>
                         </div>
-                      </a>
+                      <!-- </a> -->
                     </div>
                     <div class="has_fade_anim">
-                      <a href="service-details-bold.html">
+                      <!-- <a href="service-details-bold.html"> -->
                         <div class="service-box">
                           <span class="number">04.</span>
                           <div class="content">
@@ -1147,7 +1183,7 @@
                             <img class="show-dark" src="assets/imgs/icon/icon-s-39-light.webp" alt="icon">
                           </div>
                         </div>
-                      </a>
+                      <!-- </a> --> 
                     </div>
                   </div>
                 </div>
@@ -1177,7 +1213,7 @@
                   </div>
                   <div class="btn-wrapper has_fade_anim" data-fade-from="top" data-ease="bounce" data-fade-offset="50">
                     <div class="btn-wrapper btn-move">
-                      <a href="about-bold.html" class="wc-btn wc-btn-circle btn-hover-bgchange btn-item">了解更多 <br>关于我们</a>
+                      <a href="about.html" class="wc-btn wc-btn-circle btn-hover-bgchange btn-item">了解更多 <br>关于我们</a>
                     </div>
                   </div>
                 </div>
@@ -1195,10 +1231,10 @@
                               <div class="icon"><img src="assets/imgs/icon/quote-9.webp" alt="icon"></div>
                             </div>
                             <div class="author">
-                              <div class="avatar"><img src="assets/imgs/client/test-img-3.webp" alt="image"></div>
+                              <div class="avatar"><img src="assets/imgs/client/avatar-img-2.jpg" alt="image"></div>
                               <div class="">
-                                <h2 class="name">Ceyhan Özçivit</h2>
-                                <span class="meta-title">Mid-Level Developer</span>
+                                <h2 class="name">James</h2>
+                                <span class="meta-title">市场总监</span>
                               </div>
                             </div>
                           </div>
@@ -1212,10 +1248,10 @@
                               <div class="icon"><img src="assets/imgs/icon/quote-9.webp" alt="icon"></div>
                             </div>
                             <div class="author">
-                              <div class="avatar"><img src="assets/imgs/client/test-img-3.webp" alt="image"></div>
+                              <div class="avatar"><img src="assets/imgs/client/avatar-img-1.jpg" alt="image"></div>
                               <div class="">
-                                <h2 class="name">Ceyhan Özçivit</h2>
-                                <span class="meta-title">Mid-Level Developer</span>
+                                <h2 class="name">Michael</h2>
+                                <span class="meta-title">产品经理</span>
                               </div>
                             </div>
                           </div>
@@ -1229,10 +1265,10 @@
                               <div class="icon"><img src="assets/imgs/icon/quote-9.webp" alt="icon"></div>
                             </div>
                             <div class="author">
-                              <div class="avatar"><img src="assets/imgs/client/test-img-3.webp" alt="image"></div>
+                              <div class="avatar"><img src="assets/imgs/client/avatar-img-3.jpg" alt="image"></div>
                               <div class="">
-                                <h2 class="name">Ceyhan Özçivit</h2>
-                                <span class="meta-title">Mid-Level Developer</span>
+                                <h2 class="name">Charlotte</h2>
+                                <span class="meta-title">个人创业者</span>
                               </div>
                             </div>
                           </div>
@@ -1268,8 +1304,8 @@
                     </div>
                   </div>
                   <div class="btn-wrapper has_fade_anim">
-                    <a href="contact-bold.html" class="wc-btn wc-btn-underline btn-text-flip"> <span
-                        data-text="Let's get in touch">立即联系我们</span> <img
+                    <a href="contact.html" class="wc-btn wc-btn-underline btn-text-flip"> <span
+                        data-text="立即联系我们">立即联系我们</span> <img
                         src="assets/imgs/icon/arrow-right-half-light.webp" alt="icon image"></a>
                   </div>
                 </div>
@@ -1484,7 +1520,7 @@
                     </div>
                     <div class="btn-wrapper">
                       <a href="blog-bold.html" class="wc-btn wc-btn-underline btn-text-flip"> 
-                        <span data-text="All blog"> 查看所有博客</span> 
+                        <span data-text="查看所有博客"> 查看所有博客</span> 
                         <img class="show-light" src="assets/imgs/icon/arrow-right-half.webp" alt="icon image">
                         <img class="show-dark" src="assets/imgs/icon/arrow-right-half-light.webp" alt="icon image">
                       </a>
@@ -1564,7 +1600,7 @@
                     </div>
                   </div>
                   <div class="btn-wrapper has_fade_anim">
-                    <a href="mailto:hello@example.com" class="wc-btn wc-btn-underline">hello@jimu-tech.com</a>
+                    <a href="mailto:hello@example.com" class="wc-btn wc-btn-underline">info@jimu-tech.com</a>
                   </div>
                 </div>
               </div>
@@ -1577,23 +1613,22 @@
         <!-- footer area start 页脚区域开始 -->
         <footer class="footer-area">
           <div class="container large">
-            <div class="copyright-area-inner">
-              <div class="copyright-text">
-                <p class="text">© 2021-2025 版权所有</p>
+            <div class="copyright-area">
+              <div class="container">
+                <div class="copyright-area-inner">
+                  <ul class="footer-nav-list">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="services.html">核心服务</a></li>
+                    <li><a href="works.html">成功案例</a></li>
+                    <li><a href="about.html">关于我们</a></li>
+                    <li><a href="contact.html">联系我们</a></li>
+                  </ul>
+                  <div class="copyright-text">
+                    <p class="text">© 2021-2025 版权所有</p>
+                    <p class="text">上海晴坤科技有限公司-沪ICP备2025139992号</p>
+                  </div>
+                </div>
               </div>
-              <ul class="footer-nav-list">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="services.html">核心服务</a></li>
-                <li><a href="works.html">成功案例</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="contact.html">联系我们</a></li>
-              </ul>
-              <!-- <ul class="social-links">
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-              </ul> -->
             </div>
           </div>
         </footer>
@@ -1622,6 +1657,11 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/error-handling.js"></script>
   <script src="assets/js/offcanvas.js"></script>
+  <script src="assets/js/preloader-fix.js"></script>
+  
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="assets/js/email-subscription-v3.js"></script>
 
   <script>
 
